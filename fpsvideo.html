@@ -1,0 +1,57 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>FPS Video</title>
+</head>
+
+<body style="text-align:center; font-family:sans-serif">
+<h3 id="mess">Ver el video para empezar</h3>
+<video id="vid" width="852" height="480" controls>
+  <source src="animationl.short.mp4?1" type="video/mp4">
+No se puede hacer el experimento.
+</video>
+
+<div style="display:none;" id="opcion">
+<p><a href="fpsvideo.html">Repetir el video</a><a href="usercode.html" style="background: #9f9">Ir al juego</a></p>
+</div>
+
+<script>
+var video = document.getElementById("vid");
+video.onended = function() {
+    document.getElementById("vid").style.display = "none";
+	document.getElementById("opcion").style.display = "block";
+};
+
+video.onplay = function() {
+	document.getElementById("mess").style.display = "none";
+	window.focus();
+	if (document.activeElement) {
+		document.activeElement.blur();
+	}
+
+};
+
+</script>
+
+<style>
+#opcion p a{
+display: inline-block;
+width:300px;
+height:100px;
+line-height:100px;
+background:#ddd;
+border:1px solid #333;
+color:#000;
+margin:5px;
+margin-top:50px;
+font-size:28px;
+border-radius:5px;
+
+}
+</style>
+
+</body>
+</html>

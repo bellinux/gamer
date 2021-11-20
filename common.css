@@ -1,0 +1,130 @@
+
+/****************************************/
+/* common styles used for v1 through v4 */
+/****************************************/
+
+body          {font-family: Arial, Helvetica, sans-serif;margin: 0;padding: 0;overflow: hidden;}
+#instructions { clear: left; float: left; width: 17em; padding: 1em; border: 1px solid black; box-shadow: 0 0 5px black; display:none;}
+
+
+#introSmartphone {
+    background: white;
+    text-align: center;
+    position: fixed;
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+	text-align: center;
+}
+
+
+#arrowKey {
+    background: #000;
+    text-align: center;
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+	text-align: center;
+	color:#fff;
+}
+
+
+
+#qrcode {
+    background: white;
+    display:inline-block;
+    padding: 100px;
+}
+
+#qrcode img {
+    margin: 0 auto;
+    margin-top: 132px;
+    margin-bottom: 132px;
+}
+
+#speed_value{
+	width: 171px;
+	display: inline-block;
+	text-align: right;
+}
+
+#kmh{
+	
+}
+
+#bestTimes{
+	width: 395px;
+	background: rgba(0, 0, 0, 0.3);
+	padding: 20px;
+	float: right;
+	margin-right: 40px;
+	margin-top: 40px;
+}
+
+#storyTimes{
+	
+}
+
+.bestTime{
+}
+
+.bestTime:after{
+    content:" best time";
+    font-size:50%;
+    display: block;
+    background:#ad0505;
+    padding:5px;
+    border-radius:5px;
+    font-weight:bold;
+    line-height: 15px;
+    float: right;
+    margin-top: 6px;
+	animation: blink 1s ease infinite;
+	}
+
+@keyframes blink{
+	0%{opacity: 0;}
+	50%{opacity: 1;}
+	100%{opacity: 0;}
+}
+
+.storytime{
+	display: block;
+}
+
+.storyvalue{
+    font-size: 100%!important;
+}
+
+#endScreen{
+	display: block;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	z-index: 1999999999999999999;
+	background: #333;
+	opacity: 0;
+	padding: 100px;
+	font-size: 148px;
+	transition: 2000ms ease all;
+}
+
+#skipSmartphone, #okFullScreen{
+	color:#3478ff;
+	text-decoration:underline;
+	cursor:pointer;
+	font-size:180%;
+}
+
+#okFullScreen{
+	color:#fff;
+
+}
+
+.codeUser {
+    width: 180px;
+    font-size: 256%;
+    text-align: center;
+}

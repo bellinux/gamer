@@ -1,0 +1,71 @@
+<!DOCTYPE html> 
+
+<html>
+<head>
+  <title>User Code</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="common.css" rel="stylesheet" type="text/css" />
+</head> 
+
+<body> 
+
+
+
+
+  
+  <div id="introSmartphone">
+		<h1>Por favor, ingresar el codigo de identificacion del experimento.</h1>
+		<input type="text" id="code" class="codeUser" placeholder="321321">
+
+		<p id="errorCode"></p>
+		
+  </div>
+  
+  
+
+  
+
+
+  <script>
+  
+
+const selectElement = document.getElementById('code');
+var digits=[]
+selectElement.addEventListener('keyup', (event) => {
+
+	
+	if (selectElement.value.trim().length > 5) {
+		digits=selectElement.value.trim().split("");
+		
+		digits = digits.map(function (x) { 
+		  return parseInt(x, 10); 
+		});
+		
+		console.log("mod 1",(digits[0]+digits[1]+digits[2]+digits[3])%10);
+		
+		
+		if ((digits[0]==1 || digits[0]==9) && ((digits[0]+digits[1]+digits[2]+digits[3])%10==digits[4]) && ((digits[0]+digits[1]+digits[2]+digits[3]+digits[4])%10==digits[5])){
+
+	
+				
+			location.href="car.html#"+selectElement.value.trim()+"A";
+			
+			document.getElementById('errorCode').innerHTML="";
+			
+			
+		} else {
+			document.getElementById('errorCode').innerHTML="Codigo no valido";
+		}
+	} else {
+		document.getElementById('errorCode').innerHTML="";
+	}
+});
+
+
+
+  </script>
+  
+  
+
+</body> 
+</html>

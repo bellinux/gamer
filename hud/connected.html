@@ -1,0 +1,90 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RacerGame HUD</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="hud.css" rel="stylesheet" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head> 
+<body>
+
+	<div id="startButton">
+	<span id="startText">Todo Bien! <br /> <br />Se le pedirá que use el teléfono después. <br /> <br /> Puede cerrar esta página por ahora </span>
+	</div>
+
+  
+
+
+<script>
+
+
+let socket = new WebSocket("ws://"+location.hostname+":8080");
+
+
+	
+	socket.onopen = function(e) {
+	  console.log("[open] Connection established");
+		document.getElementById("startButton").style.display="block";
+		socket.send("SM");
+	};
+
+	socket.onmessage = function(event) {
+	
+	
+		try {
+			JSON.parse(event.data);
+		} catch (e) {
+			
+			if (event.data=="Finish"){
+				document.body.innerHTML = '';
+				document.body.style.background = '#000';
+				document.exitFullscreen();
+			}
+			
+			return false;
+			
+			
+			
+			
+		}
+		
+		
+		hudData=JSON.parse(event.data)
+		console.log(hudData);
+		document.getElementById("killCount").innerHTML=hudData.killCount;
+		document.getElementById("weaponCount").innerHTML=hudData.weapon;
+		document.getElementById("healthCount").innerHTML=hudData.health;
+	};
+
+	socket.onclose = function(event) {
+	  if (event.wasClean) {
+		console.log(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
+	  } else {
+		// e.g. server process killed or network down
+		// event.code is usually 1006 in this case
+		console.log('[close] Connection died');
+	  }
+	};
+
+	socket.onerror = function(error) {
+	  console.log(`[error] ${error.message}`);
+	};
+	
+	
+	
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
+
+
+

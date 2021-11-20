@@ -1,0 +1,123 @@
+
+/****************************************/
+/* common styles used for v1 through v4 */
+/****************************************/
+
+body          {font-family: Arial, Helvetica, sans-serif;margin: 0;padding: 0;overflow: hidden;background: #333;}
+#stats        { border: 2px solid black; }
+#controls     { width: 28em; float: left; padding: 1em; font-size: 0.7em; display:none; }
+#controls th  { text-align: right; vertical-align: middle; }
+#instructions { clear: left; float: left; width: 17em; padding: 1em; border: 1px solid black; box-shadow: 0 0 5px black; display:none;}
+#racer        {position: absolute;z-index: 0;width: 100%;height: 100%;border: 0;}
+#canvas       {position: absolute;z-index: 0;z-index: 0;background-color: #72D7EE;top:0;left:0;}
+#mute         { background-position:   0px 0px; width: 32px; height: 32px; background: url(images/mute.png); display: none; cursor: pointer; position: absolute; margin-left: 20em; }
+#mute.on      { background-position: -32px 0px; }
+
+/**************************************************/
+/* rudimentary heads up display (only used in v4) */
+/**************************************************/
+
+#hud                   {position: absolute;z-index: 4;width: 100%;height: 100%;padding: 5px 0;font-family: Verdana, Geneva, sans-serif;font-size: 0.8em;background-color: transparent;color: #fff;border-bottom: 0;box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;}
+#hud .hud              {background-color: transparent;padding: 5px;border: 0;margin: 0 5px;transition-property: background-color;transition-duration: 2s;-webkit-transition-property: background-color;-webkit-transition-duration: 2s;font-size: 145%;text-transform: uppercase;}
+#hud #speed            {position: absolute;top: 100%;margin-top: -158px;left: 100%;margin-left: -337px;font-size: 263%;color: #eee;text-shadow: 2px 2px 6px black;width: 317px;}
+#hud #current_lap_time { float: left;  }
+#hud #last_lap_time    { float: left; display: none;  }
+#hud #fast_lap_time    { display: block; width: 12em;  margin: 0 auto; text-align: center; transition-property: background-color; transition-duration: 2s; -webkit-transition-property: background-color; -webkit-transition-duration: 2s; }
+#hud .value            {color: #eee;font-weight: bold;font-size: 200%;}
+#hud .fastest          { background-color: rgba(255,215,0,0.5); }
+
+#qrcode {
+    background: white;
+    text-align: center;
+    position: fixed;
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+}
+
+#qrcode img {
+    margin: 0 auto;
+    margin-top: 200px;
+}
+
+#speed_value{
+	width: 171px;
+	display: inline-block;
+	text-align: right;
+}
+
+#kmh{
+	
+}
+
+#bestTimes{
+	width: calc(100% - 40px);
+	background: rgba(0, 0, 0, 0.3);
+	padding: 20px;
+	float: left;
+	margin-right: 40px;
+	margin-top: 40px;
+}
+
+#storyTimes{
+	
+}
+
+.bestTime{
+}
+
+.bestTime:after{
+    content:" mejor tiempo";
+    font-size: 59%;
+    display: block;
+    background:#ad0505;
+    padding: 5px;
+    border-radius:5px;
+    font-weight:bold;
+    line-height: 15px;
+    float: right;
+    margin-top: 2px;
+    animation: blink 1s ease infinite;
+ }
+
+@keyframes blink{
+	0%{opacity: 0;}
+	50%{opacity: 1;}
+	100%{opacity: 0;}
+}
+
+.storytime{
+	display: block;
+}
+
+.storyvalue{
+    font-size: 100%!important;
+}
+
+#endScreen{
+	display: block;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	z-index: 1;
+	background: #333;
+	opacity: 0;
+	padding: 100px;
+	font-size: 148px;
+	transition: 2000ms ease all;
+}
+
+#startButton{
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	z-index: 9999;
+	background: #333;
+	opacity: 1;
+	padding-top: 90px;
+	font-size: 45px;
+	text-align: center;
+}
