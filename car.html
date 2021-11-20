@@ -888,6 +888,8 @@ document.documentElement.addEventListener('fullscreenchange', (event) => {
 	var totaltimelap=0;
 	
 	function endGame(){
+	
+	document.getElementById("music").pause();
 		document.getElementById("current_lap_time").style.display="none";
 		document.getElementById("speed").style.display="none";
 		document.getElementById("endScreen").style.opacity="1";
